@@ -3,11 +3,10 @@
 ## https://github.com/elastic/kibana-docker/blob/master/.tedi/template/kibana.yml.j2
 #
 server.name: kibana
-server.host: "0"
-elasticsearch.hosts: [ "http://elasticsearch:9200" ]
+server.host: '0'
+elasticsearch.hosts: ['http://elasticsearch:9200']
 xpack.monitoring.ui.container.elasticsearch.enabled: true
-
 ## X-Pack security credentials
 #
-elasticsearch.username: elastic
-elasticsearch.password: changeme
+# elasticsearch.username: elastic
+# elasticsearch.password: changeme
