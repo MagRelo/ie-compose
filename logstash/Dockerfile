@@ -1,4 +1,7 @@
-FROM logstash:5.5-alpine
+ARG ELK_VERSION
+
+# https://github.com/elastic/logstash-docker
+FROM docker.elastic.co/logstash/logstash:${ELK_VERSION}
 
 ENV PLUGIN_BIN "/usr/share/logstash/bin/logstash-plugin"
 
