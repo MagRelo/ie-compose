@@ -11,6 +11,6 @@ RUN "$PLUGIN_BIN" install logstash-filter-grok
 RUN "$PLUGIN_BIN" install logstash-filter-useragent
 RUN "$PLUGIN_BIN" install logstash-output-elasticsearch
 
-COPY ./conf /etc/logstash
+COPY ./pipeline /etc/logstash
 
 CMD ["-f", "/etc/logstash/logstash.conf"]
