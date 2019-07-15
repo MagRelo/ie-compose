@@ -12,7 +12,7 @@ services:
 
   ie-app:
     image: 'magrelo/ie-app:latest'
-    container_name: ie
+    container_name: ie-app
     restart: on-failure
     environment:
       - MONGODB_URL_INT=mongodb://mongodb:27017/ie-app
