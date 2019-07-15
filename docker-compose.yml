@@ -1,9 +1,23 @@
 version: '3'
 services:
-  homepage:
-    image: 'magrelo/servesa-home:latest'
-    container_name: homepage
+  mongodb:
+    image: mongo:latest
+    container_name: 'mongodb'
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data/db:/data/db
+    command: mongod --smallfiles --logpath=/dev/null # --quiet
+
+  ie-app:
+    image: 'magrelo/ie-app:latest'
+    container_name: ie
     restart: on-failure
+    environment:
+      - MONGODB_URL_INT=mongodb://mongodb:27017/ie-app
+    depends_on:
+      - mongodb
 
   elasticsearch:
     container_name: elasticsearch
