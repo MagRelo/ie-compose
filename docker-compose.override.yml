@@ -11,3 +11,8 @@ services:
       - /:/etc/letsencrypt
       - /:/data/letsencrypt
       - /:/var/log/nginx
+
+  ie-app:
+    image: 'magrelo/ie-app:latest'
+    container_name: ie-app
+    restart: 'no'
