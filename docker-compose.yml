@@ -17,10 +17,10 @@ services:
     environment:
       - MONGODB_URL_INT=mongodb://mongodb:27017/ie-app
       - PLAID_CLIENT_APP_NAME="Incentive Exchange"
-      - PLAID_CLIENT_ID='5d0cdd955a4c3e0012b14f6e'
-      - PLAID_SECRET='ac69552f4c2f146f9a8ee31686e7ec';
-      - PLAID_PUBLIC_KEY='2b3f9221802f14178deef36cd7f168'
-      - PLAID_ENV='sandbox'
+      - PLAID_CLIENT_ID=5d0cdd955a4c3e0012b14f6e
+      - PLAID_SECRET=ac69552f4c2f146f9a8ee31686e7ec
+      - PLAID_PUBLIC_KEY=2b3f9221802f14178deef36cd7f168
+      - PLAID_ENV=sandbox
       - STRIPE_KEY=""
       - STRIPE_TEST_MODE="true"
       - STRIPE_TEST_KEY="sk_test_yXADfBHmXOanF981juFqbgyW00dsT1QRFj"
