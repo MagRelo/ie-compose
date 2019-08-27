@@ -55,8 +55,8 @@ services:
         ELK_VERSION: $ELK_VERSION
     volumes:
       - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro
-    ports:
-      - '5601:5601'
+    # ports:
+    #  - '5601:5601'
     depends_on:
       - elasticsearch
 
