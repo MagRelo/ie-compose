@@ -10,6 +10,29 @@ services:
       - ./data/db:/data/db
     command: mongod --logpath=/dev/null # --quiet
 
+  ie-marketing:
+    image: 'magrelo/ie-marketing:latest'
+    container_name: ie-marketing
+    restart: on-failure
+    # environment:
+    #   - MONGODB_URL_INT=mongodb://mongodb:27017/ie-app
+    #   - PLAID_CLIENT_APP_NAME="Incentive Exchange"
+    #   - PLAID_CLIENT_ID=5d0cdd955a4c3e0012b14f6e
+    #   - PLAID_SECRET=ac69552f4c2f146f9a8ee31686e7ec
+    #   - PLAID_PUBLIC_KEY=2b3f9221802f14178deef36cd7f168
+    #   - PLAID_ENV=sandbox
+    #   - STRIPE_KEY=""
+    #   - STRIPE_TEST_MODE="true"
+    #   - STRIPE_TEST_KEY="sk_test_yXADfBHmXOanF981juFqbgyW00dsT1QRFj"
+    #   - TWITTER_CONSUMER_KEY=3xMYwM4puMqa9bYWt120vpFQM
+    #   - TWITTER_CONSUMER_SECRET=hg3CRbyCBPmZNgfGMJob5kZeUjvF9R5YjXEcqsyDSf9Eqn96uL
+    #   - TWITTER_CALLBACK=https://incentive.exchange/twitter-callback
+    #   - JWT_SECRET=pasta
+    #   - SENDGRID_API_KEY=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
+    #   - SENDGRID_FROM_ADDRESS=dealflow@incentive.exchange
+    # depends_on:
+    #   - mongodb
+
   ie-app:
     image: 'magrelo/ie-app:latest'
     container_name: ie-app
