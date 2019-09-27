@@ -47,9 +47,11 @@ services:
       - STRIPE_KEY=""
       - STRIPE_TEST_MODE="true"
       - STRIPE_TEST_KEY="sk_test_yXADfBHmXOanF981juFqbgyW00dsT1QRFj"
-      - TWITTER_CONSUMER_KEY=3xMYwM4puMqa9bYWt120vpFQM
-      - TWITTER_CONSUMER_SECRET=hg3CRbyCBPmZNgfGMJob5kZeUjvF9R5YjXEcqsyDSf9Eqn96uL
-      - TWITTER_CALLBACK=https://incentive.exchange/twitter-callback
+
+      - TWITTER_CONSUMER_KEY=7JQrCbrdESFnMEZ7oe0HD0mRW
+      - TWITTER_CONSUMER_SECRET=4FVifataEjEg7gGhdA8ftIiOOnBc5LBOPBrxvS2kTABXYbGO3M
+      - TWITTER_CALLBACK=https://talent.incentive.exchange/twitter-callback
+
       - JWT_SECRET=pasta
       - SENDGRID_API_KEY=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
       - SENDGRID_FROM_ADDRESS=dealflow@incentive.exchange
