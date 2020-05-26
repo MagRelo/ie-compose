@@ -15,6 +15,18 @@ services:
     container_name: ie-marketing
     restart: on-failure
 
+  position-paper:
+    image: 'magrelo/position-paper:latest'
+    container_name: position-paper
+    restart: on-failure
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URL_INT=mongodb://mongodb/position-dev
+      - MAGIC_SECRET_KEY=${MAGIC_SECRET_KEY}
+      - SESSION_SECRET=${SESSION_SECRET}
+      - STREAM_API_KEY=${STREAM_API_KEY}
+      - STREAM_API_SECRET=${STREAM_API_SECRET}
+
   # loadbalancer
   nginx:
     container_name: nginx
@@ -23,8 +35,6 @@ services:
     ports:
       - '80:80'
       - '443:443'
-      - '5601:5601'
-      - '9200:9200'
     volumes:
       - /etc/ssl:/etc/ssl
       - /etc/letsencrypt:/etc/letsencrypt
