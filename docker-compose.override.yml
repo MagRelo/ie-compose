@@ -11,4 +11,3 @@ services:
       - /:/etc/ssl
       - /:/etc/letsencrypt
       - /:/data/letsencrypt
-      - /:/var/log/nginx

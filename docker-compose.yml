@@ -6,17 +6,25 @@ services:
     environment:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
+      - MONGO_PORT=${MONGO_PORT}
 
       - MONGO_INITDB_DATABASE=admin
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
       - MONGO_ROOT_USER=${MONGO_ROOT_USERNAME}
       - MONGO_ROOT_PASS=${MONGO_ROOT_PASSWORD}
+
+      - APP_MONGO_HOST=${MONGO_HOST}
+      - APP_MONGO_DB=${APP_MONGO_DB}
+      - APP_MONGO_USER=${APP_MONGO_USER}
+      - APP_MONGO_PASS=${APP_MONGO_PASS}
+
     ports:
       - '27017:27017'
     volumes:
       - ./data/db:/data/db
-    command: mongod --logpath=/dev/null # --quiet
+      - ./mongo/createUsers.sh:/docker-entrypoint-initdb.d/createUsers.sh:ro
+    command: mongod
 
   ie-marketing:
     image: 'magrelo/ie-marketing:latest'
@@ -29,7 +37,7 @@ services:
     restart: on-failure
     environment:
       - NODE_ENV=production
-      - MONGODB_URL_INT=mongodb://mongodb/position-dev
+      - MONGODB_URL_INT=mongodb://${APP_MONGO_USER}:${APP_MONGO_PASS}@mongodb:27017/${APP_MONGO_DB}
       - MAGIC_SECRET_KEY=${MAGIC_SECRET_KEY}
       - SESSION_SECRET=${SESSION_SECRET}
       - STREAM_API_KEY=${STREAM_API_KEY}
