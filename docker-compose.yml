@@ -46,11 +46,11 @@ services:
   clubstack:
     image: 'magrelo/reading-project:latest'
     container_name: clubstack
-    restart: on-failure
+    restart: 'no'
     environment:
       - NODE_ENV=production
       - SESSION_SECRET=${SESSION_SECRET}
-      - MONGODB_URL_INT=mongodb://${APP_MONGO_USER}:${APP_MONGO_PASS}@mongodb:27017/clubstack
+      - MONGODB_URL_INT=mongodb://${APP_MONGO_USER}:${APP_MONGO_PASS}@mongodb:27017/${APP_MONGO_DB}
       - MAGIC_SECRET_KEY=${MAGIC_SECRET_KEY}
       - STREAM_API_KEY=${STREAM_API_KEY}
       - STREAM_API_SECRET=${STREAM_API_SECRET}

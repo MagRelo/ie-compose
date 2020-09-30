@@ -23,7 +23,7 @@ mongo ${APP_MONGO_DB} \
         --authenticationDatabase admin \
         --eval "db.createUser({user: '${APP_MONGO_USER}', pwd: '${APP_MONGO_PASS}', roles:[{role:'dbOwner', db: '${CLUBSTACK_MONGO_DB}'}]});"
 
-echo 'Application user and db: created'
+echo 'clubstack user and db: created'
 
 # echo 'Creating staging user and db'
 
